@@ -1,4 +1,3 @@
-
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -6,11 +5,9 @@ public class Main {
 	public static void main(String[] args) {
 		// Rock-Scissors-Paper Game
 		
-		
 		// Array with 3 items-choices
 		String [] choices = {"✊","✌️", "✋"};
-		
-		
+			
 		// score user
 		int countUser = 0;
 		
@@ -23,14 +20,15 @@ public class Main {
 		// user's input index
 		int inputIndex;
 		
-
 		JOptionPane.showMessageDialog(null, "Hello, lets play Scissors, Paper, Rock game.");
 		
 		player = JOptionPane.showInputDialog("What is your name?");
 		
-		int numberOfGames = 0;
+		int numberOfGames = Integer.parseInt((JOptionPane.showInputDialog(null,"How many games would you like to play?")));
 		
-		while (numberOfGames < 4) {
+		int i = 0;
+		
+		while (i < numberOfGames) {
 			
 			//index to get an item from an array
 			int index = (int) (Math.random() * 3); 
@@ -43,37 +41,34 @@ public class Main {
 			
 			//inputIndex = scan.nextInt();
 			String userChoice = choices[inputIndex];
-			
-			
+					
 			if (compChoice == userChoice ) {
 				JOptionPane.showMessageDialog(null, "It's a tie. " + "Computer: " + compChoice + ": "+player +": " + userChoice);
-
 			} 
 			
 			else if(compChoice == "✊" &&  userChoice == "✌️") {
-				JOptionPane.showMessageDialog(null, "Computer won. " + "Computer: " + compChoice + ": "+player +": " + userChoice);
-				
+				JOptionPane.showMessageDialog(null, "Computer won. " + "Computer: " + compChoice + ": "+player +": " + userChoice);			
 				countComp++;
-	
 				} 
+	
 			else if(compChoice == "✋" && userChoice == "✊") {
-				JOptionPane.showMessageDialog(null, "Computer won. "+ "Computer: " + compChoice + ": "+player +": " + userChoice );
-			
+				JOptionPane.showMessageDialog(null, "Computer won. "+ "Computer: " + compChoice + ": "+player +": " + userChoice );			
 				countComp++;
-			} else if(compChoice == "✌️" && userChoice == "✋") {
-				JOptionPane.showMessageDialog(null, "Computer won. " + "Computer: " + compChoice + ": "+player +": " + userChoice);
-							
+			} 
+			
+			else if(compChoice == "✌️" && userChoice == "✋") {
+				JOptionPane.showMessageDialog(null, "Computer won. " + "Computer: " + compChoice + ": "+player +": " + userChoice);		
 				countComp++;		
 			}
+			
 			else {
 				JOptionPane.showMessageDialog(null, player +" won. " + "Computer: " + compChoice + ": "+player + ": " + userChoice);
-		
 				countUser++;
 			}
-			numberOfGames++;
+			
+			i++;
 		}
-		
-		
+			
 		if (countComp > countUser) {
 			JOptionPane.showMessageDialog(null, "Computer won with the score: " + countComp + " : "+countUser);
 		} else if (countComp < countUser){
